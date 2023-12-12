@@ -10,5 +10,7 @@
   "companyCommunicationTool": "Інструмент для спілкування компаній з клієнтами",
   "login": "Вхід",
   "loginToAccount": "Увійти в аккаунт",
-  "doNotHaveAccount": "Не маєте аккаунту?"
+  "doNotHaveAccount": "Не маєте аккаунту?",
+  "password": "Пароль",
+  "email": "Пошта"
 }

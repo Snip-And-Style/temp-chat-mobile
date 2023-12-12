@@ -10,5 +10,7 @@
   "companyCommunicationTool": "A Tool for Companies to\nCommunicate with Clients",
   "login": "Login",
   "loginToAccount": "Login to your account",
-  "doNotHaveAccount": "Don't have an account?"
+  "doNotHaveAccount": "Don't have an account?",
+  "password": "Password",
+  "email": "Email"
 }
