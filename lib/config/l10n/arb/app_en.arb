@@ -1,0 +1,11 @@
+{
+  "@@locale": "en",
+  "welcomePageTitle": "Welcome to Barber..",
+  "signUp": "Sign Up",
+  "signIn": "Sign In",
+  "signInWithGoogle": "Sign In with Google",
+  "signInWithGitHub": "Sign In with GitHub",
+  "signInWithoutRegistration": "Sign In without Registration",
+  "customerChatPlugin": "Customer Chat Plugin",
+  "companyCommunicationTool": "A Tool for Companies to\nCommunicate with Clients"
+}

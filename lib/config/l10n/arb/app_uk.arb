@@ -1,0 +1,11 @@
+{
+  "@@locale": "uk",
+  "welcomePageTitle": "Ласкаво просимо до Барбер..",
+  "signUp": "Реєстрація",
+  "signIn": "Вхід",
+  "signInWithGoogle": "Увійти через Google",
+  "signInWithGitHub": "Увійти через GitHub",
+  "signInWithoutRegistration": "Увійти без реєстрації",
+  "customerChatPlugin": "Плагін чату клієнтів",
+  "companyCommunicationTool": "Інструмент для спілкування компаній з клієнтами"
+}
