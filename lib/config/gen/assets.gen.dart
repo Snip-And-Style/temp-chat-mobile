@@ -18,6 +18,10 @@ class $AssetsImagesGen {
   SvgGenImage get arrowRight =>
       const SvgGenImage('assets/images/arrow-right.svg');
 
+  /// File path: assets/images/auth_adventure.svg
+  SvgGenImage get authAdventure =>
+      const SvgGenImage('assets/images/auth_adventure.svg');
+
   /// File path: assets/images/human.svg
   SvgGenImage get human => const SvgGenImage('assets/images/human.svg');
 
@@ -29,7 +33,8 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/welcome_message.jpg');
 
   /// List of all assets
-  List<dynamic> get values => [arrowRight, human, message, welcomeMessage];
+  List<dynamic> get values =>
+      [arrowRight, authAdventure, human, message, welcomeMessage];
 }
 
 class Assets {
