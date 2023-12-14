@@ -44,7 +44,7 @@ jobs:
       - name: Authenticate with Firebase
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: firebase login --token $FIREBASE_TOKEN
+        run: firebase login --interactive --token $FIREBASE_TOKEN
 
       # Build and Deploy Android App
       - name: Execute Fastlane Lane
