@@ -38,6 +38,9 @@ jobs:
           gem install bundler
           bundle install
 
+      - name: Install Firebase CLI
+        run: curl -sL https://firebase.tools | bash
+
       - name: Authenticate with Firebase
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
