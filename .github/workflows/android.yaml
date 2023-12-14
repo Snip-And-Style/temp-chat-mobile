@@ -1,24 +1,45 @@
+name: Android Build and Deploy
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch; adjust as needed
+
 jobs:
-  build:
+  build-and-deploy:
+    name: Build and Deploy Android App
     runs-on: ubuntu-latest
+
     steps:
-      - name: Check out code
+      - name: Check Out Repository
         uses: actions/checkout@v2
 
-      - name: Set up Ruby
+      - name: Set Up Ruby Environment
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "2.7"
+          ruby-version: "2.7" # Choose the Ruby version that matches your project
+
+      - name: Cache Ruby Gems
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
 
       - name: Install Fastlane
-        run: gem install fastlane
+        run: |
+          gem install bundler
+          bundle install
 
-      - name: Set up Fastlane
-        run: fastlane setup
+      - name: Authenticate with Firebase
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: firebase login --token $FIREBASE_TOKEN
 
-      - name: Run Fastlane lane
+      - name: Execute Fastlane Lane
         env:
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
-          FIREBASE_GROUPS: ${{ secrets.GROUPS }}
+          FIREBASE_GROUPS: ${{ secrets.FIREBASE_GROUPS }}
         run: |
           fastlane android development
