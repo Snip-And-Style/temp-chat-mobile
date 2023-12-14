@@ -12,5 +12,6 @@
   "loginToAccount": "Login to your account",
   "doNotHaveAccount": "Don't have an account?",
   "password": "Password",
-  "email": "Email"
+  "email": "Email",
+  "username": "User name"
 }

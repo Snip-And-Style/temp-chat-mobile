@@ -6,11 +6,11 @@ import 'package:snip_and_style/config/gen/assets.gen.dart';
 import 'package:snip_and_style/config/l10n/l10n.dart';
 import 'package:snip_and_style/config/router/app_route.dart';
 import 'package:snip_and_style/presentation/page/login/bloc/login_bloc.dart';
-import 'package:snip_and_style/presentation/page/login/widgets/login_form.dart';
+import 'package:snip_and_style/presentation/page/register/register_form.dart';
 
 @RoutePage()
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +32,10 @@ class LoginPage extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
               ),
-              _buildAnimatedLoginForm(),
+              _buildAnimatedregisterForm(),
               TextButton(
                 onPressed: () {
-                  context.router.push(const RegisterRoute());
+                  context.router.push(const LoginRoute());
                 },
                 child: RichText(
                   text: TextSpan(
@@ -63,7 +63,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _buildAnimatedLoginForm() {
+  Widget _buildAnimatedregisterForm() {
     return AnimatedOpacity(
       duration: const Duration(milliseconds: 500),
       opacity: 1,
@@ -74,7 +74,7 @@ class LoginPage extends StatelessWidget {
             curve: Curves.easeInOut,
           ),
         ),
-        child: const LoginForm(),
+        child: const RegisterForm(),
       ),
     );
   }
