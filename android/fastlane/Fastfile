@@ -1,0 +1,21 @@
+default_platform(:android)
+
+platform :android do
+  desc "Submit a new Development Build to Firebase App Distribution"
+  lane :development do
+    # Clean and build your Flutter app in release mode
+    sh("flutter clean")
+    sh("flutter build apk --flavor development --release -t lib/main_development.dart")
+
+    # Access environment variables
+    firebase_app_id = ENV['FIREBASE_APP_ID']
+    groups = ENV['GROUPS']
+
+    # Upload to Firebase App Distribution
+    firebase_app_distribution(
+      app: firebase_app_id,
+      groups: groups,
+      apk_path: "../build/app/outputs/flutter-apk/app-development-release.apk"
+    )
+  end
+end
