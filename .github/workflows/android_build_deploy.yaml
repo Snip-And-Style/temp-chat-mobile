@@ -5,6 +5,11 @@ on:
     branches:
       - main # Trigger on pushes to the main branch; adjust as needed
   workflow_dispatch:
+    inputs:
+      release_notes:
+        type: string
+        required: true
+        default: "Manually release"
 
 jobs:
   build-and-deploy:
