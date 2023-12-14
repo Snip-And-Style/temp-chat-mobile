@@ -23,7 +23,7 @@ jobs:
       - name: Set Up Ruby Environment
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "2.7" # Choose the Ruby version that matches your project
+          ruby-version: "2.7"
 
       - name: Cache Ruby Gems
         uses: actions/cache@v2
