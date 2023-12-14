@@ -9,7 +9,7 @@ platform :android do
 
     # Access environment variables
     firebase_app_id = ENV['FIREBASE_APP_ID']
-    groups = ENV['FIREBASE_GROUPS']
+    groups = ENV['GROUPS']
 
     # Upload to Firebase App Distribution
     firebase_app_distribution(

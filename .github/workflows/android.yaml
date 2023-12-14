@@ -1,0 +1,24 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.7"
+
+      - name: Install Fastlane
+        run: gem install fastlane
+
+      - name: Set up Fastlane
+        run: fastlane setup
+
+      - name: Run Fastlane lane
+        env:
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+          FIREBASE_GROUPS: ${{ secrets.GROUPS }}
+        run: |
+          fastlane android development
