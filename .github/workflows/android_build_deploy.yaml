@@ -48,8 +48,9 @@ jobs:
 
       # Build and Deploy Android App
       - name: Execute Fastlane Lane
+        working-directory: android
         env:
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
           FIREBASE_GROUPS: ${{ secrets.FIREBASE_GROUPS }}
         run: |
-          fastlane android development
+          bundle exec fastlane android development
