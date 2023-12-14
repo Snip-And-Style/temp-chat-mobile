@@ -129,3 +129,5 @@ app.*.map.json
 !.idea/runConfigurations/
 
 **/lib/firebase_options.dart
+
+*.env
