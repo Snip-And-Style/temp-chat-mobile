@@ -3,7 +3,7 @@ name: Android Build and Deploy
 on:
   push:
     branches:
-      - main # Trigger on pushes to the main branch; adjust as needed
+      - dev
   workflow_dispatch:
     inputs:
       release_notes:
