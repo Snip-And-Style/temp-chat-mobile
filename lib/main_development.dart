@@ -3,11 +3,13 @@ import 'package:flutter/foundation.dart'
     show TargetPlatform, defaultTargetPlatform;
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:snip_and_style/backbone/dependency_injection.dart' as di;
 import 'package:snip_and_style/bootstrap.dart';
 import 'package:snip_and_style/presentation/page/app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  di.registerDependencies();
   await dotenv.load();
   await Firebase.initializeApp(
     options: getFirebaseOptions(),
