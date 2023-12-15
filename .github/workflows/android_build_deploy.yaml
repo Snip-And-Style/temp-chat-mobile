@@ -10,6 +10,7 @@ on:
         type: string
         required: true
         default: "Manually release"
+
 env:
   API_KEY: ${{ secrets.API_KEY }}
   APP_ID: ${{ secrets.APP_ID }}
@@ -17,6 +18,13 @@ env:
   PROJECT_ID: ${{ secrets.PROJECT_ID }}
   STORAGE_BUCKET: ${{ secrets.STORAGE_BUCKET }}
   GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+  KEYSTORE: ${{ secrets.KEYSTORE }}
+  FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+  FIREBASE_GROUPS: ${{ secrets.FIREBASE_GROUPS }}
+  ANDROID_KEYSTORE_PATH: ${{ secrets.ANDROID_KEYSTORE_PATH }}
+  ANDROID_KEYSTORE_ALIAS: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+  ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
+  ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
 
 jobs:
   build-and-deploy:
@@ -39,7 +47,7 @@ jobs:
       - name: Decode Google Services JSON
         working-directory: android/app
         run: |
-          echo "$GOOGLE_SERVICES_JSON" | base64 -d > ./google-services.json
+          echo "$GOOGLE_SERVICES_JSON" | base64 -d > google-services.json
 
       - name: Set Up Ruby Environment
         uses: ruby/setup-ruby@v1
@@ -67,11 +75,12 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: firebase login --interactive --token $FIREBASE_TOKEN
 
-      # Build and Deploy Android App
+      - name: Decode Keystore File
+        working-directory: android
+        run: |
+          echo "$KEYSTORE" | base64 -d > key.jks
+
       - name: Execute Fastlane Lane
         working-directory: android
-        env:
-          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
-          FIREBASE_GROUPS: ${{ secrets.FIREBASE_GROUPS }}
         run: |
           bundle exec fastlane android development
