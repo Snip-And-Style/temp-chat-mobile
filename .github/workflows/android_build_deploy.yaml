@@ -19,6 +19,7 @@ env:
   STORAGE_BUCKET: ${{ secrets.STORAGE_BUCKET }}
   GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
   KEYSTORE: ${{ secrets.KEYSTORE }}
+  FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
   FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
   FIREBASE_GROUPS: ${{ secrets.FIREBASE_GROUPS }}
   ANDROID_KEYSTORE_PATH: ${{ secrets.ANDROID_KEYSTORE_PATH }}
@@ -71,9 +72,7 @@ jobs:
         run: curl -sL https://firebase.tools | bash
 
       - name: Authenticate with Firebase
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: firebase login --interactive --token $FIREBASE_TOKEN
+        run: firebase login --no-localhost --interactive --token $FIREBASE_TOKEN
 
       - name: Decode Keystore File
         working-directory: android
