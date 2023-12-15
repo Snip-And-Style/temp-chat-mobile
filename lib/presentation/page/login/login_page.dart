@@ -16,48 +16,45 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
-    return BlocProvider(
-      create: (context) => LoginBloc(),
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
-          child: ListView(
-            children: [
-              SvgPicture.asset(
-                Assets.images.authAdventure.path,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: ListView(
+          children: [
+            SvgPicture.asset(
+              Assets.images.authAdventure.path,
+            ),
+            Center(
+              child: Text(
+                l10n.loginToAccount,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
-              Center(
-                child: Text(
-                  l10n.loginToAccount,
-                  style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            _buildAnimatedLoginForm(),
+            TextButton(
+              onPressed: () {
+                context.router.push(const RegisterRoute());
+              },
+              child: RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: l10n.doNotHaveAccount,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                    TextSpan(
+                      text: l10n.signUp,
+                      style: const TextStyle(
+                        color: Color(0xFF6C63FF),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              _buildAnimatedLoginForm(),
-              TextButton(
-                onPressed: () {
-                  context.router.push(const RegisterRoute());
-                },
-                child: RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: l10n.doNotHaveAccount,
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                      TextSpan(
-                        text: l10n.signUp,
-                        style: const TextStyle(
-                          color: Color(0xFF6C63FF),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:snip_and_style/backbone/dependency_injection.dart';
 import 'package:snip_and_style/config/l10n/l10n.dart';
 import 'package:snip_and_style/presentation/page/login/bloc/login_bloc.dart';
 import 'package:snip_and_style/presentation/page/login/widgets/auth_field.dart';
@@ -28,10 +29,12 @@ class _LoginFormState extends State<LoginForm> {
   // Form submission
   void _submit() {
     if (_validate()) {
-      context.read<LoginBloc>().add(LoginEvent.login(
-            email: _emailController.text,
-            password: _passwordController.text,
-          ));
+      getIt.get<LoginBloc>().add(
+            LoginEvent.login(
+              email: _emailController.text,
+              password: _passwordController.text,
+            ),
+          );
     }
   }
 
@@ -39,6 +42,7 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     return BlocConsumer<LoginBloc, LoginState>(
+      bloc: getIt.get<LoginBloc>(),
       listener: (context, state) {
         state.when(
           initial: () {},
