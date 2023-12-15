@@ -15,7 +15,8 @@ platform :android do
     firebase_app_distribution(
       app: firebase_app_id,
       groups: groups,
-      apk_path: "../build/app/outputs/flutter-apk/app-development-release.apk"
+      apk_path: "../build/app/outputs/flutter-apk/app-development-release.apk",
+      firebase_cli_token: ENV["FIREBASE_TOKEN"]
     )
   end
 end
