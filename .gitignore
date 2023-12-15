@@ -66,6 +66,8 @@ unlinked_spec.ds
 **/android/**/GeneratedPluginRegistrant.java
 **/android/key.properties
 **/android/.idea/
+**/android/*.json
+**/android/app/*.json
 *.jks
 
 # iOS/XCode related
@@ -96,6 +98,8 @@ unlinked_spec.ds
 **/ios/Flutter/flutter_export_environment.sh
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/*.json
+**/ios/Runner/GoogleService-Info.plist
 
 # Coverage
 coverage/
@@ -124,3 +128,7 @@ app.*.map.json
 !.idea/codeStyles/
 !.idea/dictionaries/
 !.idea/runConfigurations/
+
+**/lib/firebase_options.dart
+
+*.env
