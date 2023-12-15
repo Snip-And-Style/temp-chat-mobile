@@ -1,4 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:snip_and_style/data/datasources/graphql_client.dart';
 import 'package:snip_and_style/data/gateway/authorization_gateway.dart';
 import 'package:snip_and_style/data/service/authorization_service.dart';
 import 'package:snip_and_style/domain/gateway/authorization_gateway.dart';
@@ -14,5 +17,7 @@ void registerDependencies() {
     //Service
     ..registerLazySingleton<AuthorizationService>(AuthorizationServiceImpl.new)
     //Gateway
-    ..registerLazySingleton<AuthorizationGateway>(AuthorizationGatewayImpl.new);
+    ..registerLazySingleton<AuthorizationGateway>(AuthorizationGatewayImpl.new)
+    //Datasource
+    ..registerLazySingleton<ValueNotifier<GraphQLClient>>(initGraphQL);
 }
