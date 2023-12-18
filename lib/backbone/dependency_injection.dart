@@ -11,32 +11,36 @@ import 'package:snip_and_style/presentation/page/login/bloc/login_bloc.dart';
 
 final GetIt getIt = GetIt.instance;
 
+/// Registers all the necessary dependencies for the application.
 void registerDependencies() {
+  // BLoC
+  // Registering the LoginBloc with its dependencies.
   getIt
-    //BLoC
     ..registerLazySingleton<LoginBloc>(
-      () => LoginBloc(
-        getIt.get(),
-      ),
+      () => LoginBloc(getIt.get<LoginUseCase>()),
     )
-    //Service
+
+    // Service
+    // Registering the AuthorizationService implementation.
     ..registerLazySingleton<AuthorizationService>(
-      () => AuthorizationServiceImpl(
-        getIt.get(),
-      ),
+      () => AuthorizationServiceImpl(getIt.get<AuthorizationGateway>()),
     )
-    //Gateway
+
+    // Gateway
+    // Registering the AuthorizationGateway implementation.
     ..registerLazySingleton<AuthorizationGateway>(
-      () => AuthorizationGatewayImpl(
-        getIt.get(),
-      ),
+      () => AuthorizationGatewayImpl(getIt.get<GraphQLClientManager>()),
     )
-    //UseCase
+
+    // UseCase
+    // Registering the LoginUseCase implementation.
     ..registerLazySingleton<LoginUseCase>(
-      () => LoginUseCaseImpl(
-        getIt.get(),
-      ),
+      () => LoginUseCaseImpl(getIt.get<AuthorizationService>()),
     )
-    //Datasource
-    ..registerLazySingleton<ValueNotifier<GraphQLClient>>(initGraphQL);
+
+    // Datasource
+    // Registering a singleton for GraphQLClientManager.
+    ..registerSingleton<GraphQLClientManager>(
+      GraphQLClientManager(),
+    );
 }
