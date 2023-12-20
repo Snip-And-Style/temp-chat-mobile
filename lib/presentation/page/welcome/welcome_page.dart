@@ -51,7 +51,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   ],
                 ),
                 const SizedBox(
-                  height: 32,
+                  height: 24,
                 ),
                 Text(
                   l10n.companyCommunicationTool,
