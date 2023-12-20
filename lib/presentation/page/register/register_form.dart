@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:snip_and_style/backbone/dependency_injection.dart';
-import 'package:snip_and_style/config/l10n/l10n.dart';
+import 'package:snip_and_style/config/extensions/build_context_extension.dart';
+
 import 'package:snip_and_style/presentation/page/login/bloc/login_bloc.dart';
 import 'package:snip_and_style/presentation/page/login/widgets/auth_field.dart';
 
@@ -73,21 +75,21 @@ class _RegisterFormState extends State<RegisterForm> {
                     AuthField(
                       controller: _usernameController,
                       labelText: l10n.username,
-                      icon: Icons.person,
+                      icon: SvgPicture.asset('assets/images/mail.svg'),
                     ),
                     const SizedBox(height: 16),
                     // Email TextFormField
                     AuthField(
                       controller: _emailController,
                       labelText: l10n.email,
-                      icon: Icons.email,
+                      icon: SvgPicture.asset('assets/images/mail.svg'),
                     ),
                     const SizedBox(height: 16),
                     // Password TextFormField
                     AuthField(
                       controller: _passwordController,
                       labelText: l10n.password,
-                      icon: Icons.lock,
+                      icon: SvgPicture.asset('assets/images/mail.svg'),
                       obscureText: true,
                     ),
                     const SizedBox(height: 16),

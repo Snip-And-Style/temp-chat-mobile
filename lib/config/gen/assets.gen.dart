@@ -22,8 +22,18 @@ class $AssetsImagesGen {
   SvgGenImage get authAdventure =>
       const SvgGenImage('assets/images/auth_adventure.svg');
 
+  /// File path: assets/images/eye-off.svg
+  SvgGenImage get eyeOff => const SvgGenImage('assets/images/eye-off.svg');
+
+  /// File path: assets/images/flat-color-icons_google.svg
+  SvgGenImage get flatColorIconsGoogle =>
+      const SvgGenImage('assets/images/flat-color-icons_google.svg');
+
   /// File path: assets/images/human.svg
   SvgGenImage get human => const SvgGenImage('assets/images/human.svg');
+
+  /// File path: assets/images/mail.svg
+  SvgGenImage get mail => const SvgGenImage('assets/images/mail.svg');
 
   /// File path: assets/images/message.svg
   SvgGenImage get message => const SvgGenImage('assets/images/message.svg');
@@ -33,8 +43,16 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/welcome_message.jpg');
 
   /// List of all assets
-  List<dynamic> get values =>
-      [arrowRight, authAdventure, human, message, welcomeMessage];
+  List<dynamic> get values => [
+        arrowRight,
+        authAdventure,
+        eyeOff,
+        flatColorIconsGoogle,
+        human,
+        mail,
+        message,
+        welcomeMessage
+      ];
 }
 
 class Assets {

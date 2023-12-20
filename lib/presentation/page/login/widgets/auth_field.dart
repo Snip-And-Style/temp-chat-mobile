@@ -11,38 +11,43 @@ class AuthField extends StatelessWidget {
   });
   final TextEditingController? controller;
   final String labelText;
-  final IconData? icon;
+  final Widget? icon;
   final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      style: const TextStyle(color: Colors.black),
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: Colors.grey.withOpacity(0.2),
-        labelText: labelText,
-        labelStyle: const TextStyle(color: Colors.grey),
-        prefixIcon: icon != null ? Icon(icon, color: Colors.grey) : null,
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: const BorderSide(color: Colors.grey),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          labelText,
+          style: Theme.of(context).textTheme.bodySmall,
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: const BorderSide(color: Colors.grey),
+        Container(
+          height: 60,
+          padding: const EdgeInsets.all(16),
+          margin: const EdgeInsets.only(top: 8),
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surface,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: TextFormField(
+            controller: controller,
+            style: const TextStyle(color: Colors.black),
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Theme.of(context).colorScheme.surface,
+              suffixIcon: icon,
+              suffixIconConstraints: const BoxConstraints(
+                maxHeight: 24,
+                maxWidth: 24,
+              ),
+              border: const UnderlineInputBorder(),
+            ),
+            obscureText: obscureText,
+          ),
         ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: const BorderSide(color: Colors.red),
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: const BorderSide(color: Colors.red),
-        ),
-      ),
-      obscureText: obscureText,
+      ],
     );
   }
 }

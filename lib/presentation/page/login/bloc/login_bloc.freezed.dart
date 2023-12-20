@@ -156,7 +156,7 @@ class _$LoginImpl with DiagnosticableTreeMixin implements Login {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoginImpl &&
@@ -351,7 +351,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
@@ -471,7 +471,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
@@ -591,7 +591,7 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$SuccessImpl);
   }
@@ -731,7 +731,7 @@ class _$FailureImpl with DiagnosticableTreeMixin implements _Failure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FailureImpl &&

@@ -2,8 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 import 'package:snip_and_style/config/gen/assets.gen.dart';
-import 'package:snip_and_style/config/l10n/l10n.dart';
+
 import 'package:snip_and_style/config/router/app_route.dart';
 import 'package:snip_and_style/presentation/page/login/bloc/login_bloc.dart';
 import 'package:snip_and_style/presentation/page/register/register_form.dart';

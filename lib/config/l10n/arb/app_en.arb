@@ -1,17 +1,19 @@
 {
   "@@locale": "en",
-  "welcomePageTitle": "Welcome to Barber..",
   "signUp": "Sign Up",
   "signIn": "Sign In",
-  "signInWithGoogle": "Sign In with Google",
-  "signInWithGitHub": "Sign In with GitHub",
-  "signInWithoutRegistration": "Sign In without Registration",
+  "pleaseSignIn": "Please sign in to continue",
   "customerChatPlugin": "Customer Chat Plugin",
   "companyCommunicationTool": "A Tool for Companies to\nCommunicate with Clients",
   "login": "Login",
   "loginToAccount": "Login to your account",
   "doNotHaveAccount": "Don't have an account?",
   "password": "Password",
-  "email": "Email",
-  "username": "User name"
+  "email": "Enter your email",
+  "username": "User name",
+  "forgotPassword": "Forgot Password?",
+  "or": "or",
+  "google": "Google",
+  "newMember": "New Member?",
+  "registerNow": "Register now"
 }
