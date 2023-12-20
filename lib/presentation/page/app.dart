@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:snip_and_style/backbone/dependency_injection.dart';
 import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 
 import 'package:snip_and_style/config/router/app_route.dart';

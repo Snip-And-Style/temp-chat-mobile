@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:snip_and_style/data/datasources/graphql_client.dart';
 import 'package:snip_and_style/data/gateway/authorization/authorization_gateway.dart';
 import 'package:snip_and_style/data/service/authorization_service.dart';
