@@ -44,6 +44,8 @@ class _LoginFormState extends State<LoginForm> {
     }
   }
 
+  bool _hidePassword = true;
+
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
@@ -82,8 +84,19 @@ class _LoginFormState extends State<LoginForm> {
                 AuthField(
                   controller: _passwordController,
                   labelText: l10n.password,
-                  icon: SvgPicture.asset(Assets.images.eyeOff.path),
-                  obscureText: true,
+                  icon: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _hidePassword = !_hidePassword;
+                      });
+                    },
+                    child: SvgPicture.asset(
+                      _hidePassword
+                          ? Assets.images.eye.path
+                          : Assets.images.eyeOff.path,
+                    ),
+                  ),
+                  obscureText: _hidePassword,
                 ),
                 const SizedBox(height: 30),
                 // Login Button with AnimatedContainer

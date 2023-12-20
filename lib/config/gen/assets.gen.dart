@@ -25,6 +25,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/eye-off.svg
   SvgGenImage get eyeOff => const SvgGenImage('assets/images/eye-off.svg');
 
+  /// File path: assets/images/eye.svg
+  SvgGenImage get eye => const SvgGenImage('assets/images/eye.svg');
+
   /// File path: assets/images/flat-color-icons_google.svg
   SvgGenImage get flatColorIconsGoogle =>
       const SvgGenImage('assets/images/flat-color-icons_google.svg');
@@ -47,6 +50,7 @@ class $AssetsImagesGen {
         arrowRight,
         authAdventure,
         eyeOff,
+        eye,
         flatColorIconsGoogle,
         human,
         mail,
