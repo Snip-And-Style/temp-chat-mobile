@@ -53,4 +53,26 @@ class AuthorizationGatewayImpl implements AuthorizationGateway {
     // Returning the user ID from the response.
     return result.data?['loginUser']['id'].toString() ?? '';
   }
+
+  @override
+  Future<String> register(
+      String email, String password, String username) async {
+    print('register');
+    // Define the mutation options with variables.
+    final options = MutationOptions(
+      document: gql(AuthorizationMutations.registerMutation),
+      variables: {
+        'user_data': {
+          'email': email,
+          'password': password,
+          'name': username,
+        },
+      },
+    );
+
+    // Execute the mutation and await the result.
+    final result = await _graphQLClient.mutate(options);
+
+    return '';
+  }
 }

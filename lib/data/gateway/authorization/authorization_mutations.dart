@@ -8,4 +8,12 @@ class AuthorizationMutations {
         }
       }
     ''';
+
+  static const registerMutation = r'''
+      mutation RegisterUser($user_data: UserInput!) {
+        registerUser(userData: $user_data) {
+          id
+        }
+      }
+    ''';
 }
