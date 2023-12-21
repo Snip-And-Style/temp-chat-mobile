@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:snip_and_style/presentation/page/auth/login/login_page.dart';
 import 'package:snip_and_style/presentation/page/home/home_page.dart';
-import 'package:snip_and_style/presentation/page/login/login_page.dart';
+
 import 'package:snip_and_style/presentation/page/auth/register/register_page.dart';
 import 'package:snip_and_style/presentation/page/welcome/welcome_page.dart';
 

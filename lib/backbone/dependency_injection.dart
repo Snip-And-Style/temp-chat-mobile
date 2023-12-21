@@ -5,7 +5,7 @@ import 'package:snip_and_style/data/service/authorization_service.dart';
 import 'package:snip_and_style/domain/gateway/authorization_gateway.dart';
 import 'package:snip_and_style/domain/service/authorization_service.dart';
 import 'package:snip_and_style/domain/usecase/login_usecase.dart';
-import 'package:snip_and_style/presentation/page/login/bloc/login_bloc.dart';
+import 'package:snip_and_style/presentation/page/auth/login/bloc/login_bloc.dart';
 
 final GetIt getIt = GetIt.instance;
 
