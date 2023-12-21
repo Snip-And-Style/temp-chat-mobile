@@ -1,7 +1,9 @@
 {
   "@@locale": "uk",
-  "signUp": "Реєстрація",
+  "signUp": "Зареєструватися",
   "signIn": "Увійти",
+  "getStarted": "Розпочнемо",
+  "getStartedFrom": "зі створення акаунта.",
   "pleaseSignIn": "Будь ласка, увійдіть, щоб продовжити",
   "customerChatPlugin": "Плагін Чату для Клієнтів",
   "companyCommunicationTool": "Інструмент для Зв'язку Компаній з Клієнтами",

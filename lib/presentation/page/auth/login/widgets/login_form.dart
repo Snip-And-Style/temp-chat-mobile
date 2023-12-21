@@ -6,11 +6,11 @@ import 'package:snip_and_style/backbone/dependency_injection.dart';
 import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 import 'package:snip_and_style/config/gen/assets.gen.dart';
 import 'package:snip_and_style/config/router/app_route.dart';
-import 'package:snip_and_style/presentation/page/login/bloc/login_bloc.dart';
-import 'package:snip_and_style/presentation/page/login/widgets/auth_field.dart';
-import 'package:snip_and_style/presentation/page/login/widgets/google_button.dart';
-import 'package:snip_and_style/presentation/page/login/widgets/login_button.dart';
-import 'package:snip_and_style/presentation/page/login/widgets/login_divider.dart';
+import 'package:snip_and_style/presentation/page/auth/login/bloc/login_bloc.dart';
+import 'package:snip_and_style/presentation/page/auth/widgets/auth_field.dart';
+import 'package:snip_and_style/presentation/page/auth/login/widgets/google_button.dart';
+import 'package:snip_and_style/presentation/page/auth/widgets/auth_button.dart';
+import 'package:snip_and_style/presentation/page/auth/login/widgets/login_divider.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -100,8 +100,28 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 const SizedBox(height: 30),
                 // Login Button with AnimatedContainer
-                LoginButton(
-                  submit: _submit,
+                BlocSelector<LoginBloc, LoginState, LoginState>(
+                  bloc: getIt.get<LoginBloc>(),
+                  selector: (state) {
+                    return state;
+                  },
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      loading: () {
+                        return LoginButton(
+                          isLoading: true,
+                          submit: _submit,
+                          buttonText: context.l10n.signIn,
+                        );
+                      },
+                      orElse: () {
+                        return LoginButton(
+                          submit: _submit,
+                          buttonText: context.l10n.signIn,
+                        );
+                      },
+                    );
+                  },
                 ),
                 const SizedBox(height: 15),
                 TextButton(

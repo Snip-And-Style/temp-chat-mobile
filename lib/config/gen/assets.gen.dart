@@ -41,6 +41,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/message.svg
   SvgGenImage get message => const SvgGenImage('assets/images/message.svg');
 
+  /// File path: assets/images/user.svg
+  SvgGenImage get user => const SvgGenImage('assets/images/user.svg');
+
   /// File path: assets/images/welcome_message.jpg
   AssetGenImage get welcomeMessage =>
       const AssetGenImage('assets/images/welcome_message.jpg');
@@ -55,6 +58,7 @@ class $AssetsImagesGen {
         human,
         mail,
         message,
+        user,
         welcomeMessage
       ];
 }

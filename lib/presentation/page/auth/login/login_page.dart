@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 import 'package:snip_and_style/config/router/app_route.dart';
-import 'package:snip_and_style/presentation/page/login/widgets/login_form.dart';
+import 'package:snip_and_style/presentation/page/auth/login/widgets/login_form.dart';
 
 const _verticalPadding = 50.0;
 const _horizontalPadding = 24.0;

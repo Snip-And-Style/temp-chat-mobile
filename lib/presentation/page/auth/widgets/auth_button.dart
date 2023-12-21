@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:snip_and_style/backbone/dependency_injection.dart';
 import 'package:snip_and_style/config/extensions/build_context_extension.dart';
-import 'package:snip_and_style/presentation/page/login/bloc/login_bloc.dart';
+import 'package:snip_and_style/presentation/page/auth/login/bloc/login_bloc.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({
-    super.key,
     required this.submit,
+    required this.buttonText,
+    this.isLoading = false,
+    super.key,
   });
 
   final void Function() submit;
+  final bool isLoading;
+  final String buttonText;
 
   @override
   Widget build(BuildContext context) {

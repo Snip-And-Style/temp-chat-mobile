@@ -2,6 +2,8 @@
   "@@locale": "en",
   "signUp": "Sign Up",
   "signIn": "Sign In",
+  "getStarted": "Get Started",
+  "getStartedFrom": "by creating a free account.",
   "pleaseSignIn": "Please sign in to continue",
   "customerChatPlugin": "Customer Chat Plugin",
   "companyCommunicationTool": "A Tool for Companies to\nCommunicate with Clients",
