@@ -8,6 +8,8 @@ import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 import 'package:snip_and_style/config/gen/assets.gen.dart';
 import 'package:snip_and_style/config/router/app_route.dart';
 import 'package:snip_and_style/presentation/page/auth/login/bloc/login_bloc.dart';
+import 'package:snip_and_style/presentation/page/auth/register/bloc/register_bloc.dart';
+import 'package:snip_and_style/presentation/page/auth/register/widgets/terms_row.dart';
 import 'package:snip_and_style/presentation/page/auth/widgets/auth_button.dart';
 import 'package:snip_and_style/presentation/page/auth/widgets/auth_field.dart';
 
@@ -34,23 +36,25 @@ class _RegisterFormState extends State<RegisterForm> {
 
   // Form submission
   void _submit() {
-    if (_validate()) {
-      getIt.get<LoginBloc>().add(
-            LoginEvent.login(
+    if (_validate() && _isAgreed) {
+      getIt.get<RegisterBloc>().add(
+            RegisterEvent.register(
               email: _emailController.text,
               password: _passwordController.text,
+              username: _usernameController.text,
             ),
           );
     }
   }
 
   bool _hidePassword = true;
+  bool _isAgreed = false;
 
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    return BlocConsumer<LoginBloc, LoginState>(
-      bloc: getIt.get<LoginBloc>(),
+    return BlocConsumer<RegisterBloc, RegisterState>(
+      bloc: getIt.get<RegisterBloc>(),
       listener: (context, state) {
         state.when(
           initial: () {},
@@ -107,45 +111,13 @@ class _RegisterFormState extends State<RegisterForm> {
                 ),
                 const SizedBox(height: 30),
                 //Terms and Conditions
-                Row(
-                  children: [
-                    Checkbox(
-                      value: false,
-                      onChanged: (value) {},
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.7,
-                      child: RichText(
-                        text: TextSpan(
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall, // Default text style
-                          children: <TextSpan>[
-                            const TextSpan(
-                                text: 'By checking the box you agree to our '),
-                            TextSpan(
-                              text: 'Terms',
-                              style: const TextStyle(color: Colors.blue),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  // Code to open Terms
-                                },
-                            ),
-                            const TextSpan(text: ' and '),
-                            TextSpan(
-                              text: 'Conditions',
-                              style: const TextStyle(color: Colors.blue),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  // Code to open Conditions
-                                },
-                            ),
-                            const TextSpan(text: '.'),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                TermsRow(
+                  isAgreed: _isAgreed,
+                  onChanged: (value) {
+                    setState(() {
+                      _isAgreed = value!;
+                    });
+                  },
                 ),
                 const SizedBox(height: 30),
                 // Login Button with AnimatedContainer

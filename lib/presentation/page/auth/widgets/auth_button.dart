@@ -52,7 +52,7 @@ class LoginButton extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      context.l10n.signIn,
+                      buttonText,
                       style: context.textTheme.bodyMedium!.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,

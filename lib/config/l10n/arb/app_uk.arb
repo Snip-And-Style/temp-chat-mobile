@@ -17,5 +17,9 @@
   "or": "або",
   "google": "Google",
   "newMember": "Новий учасник?",
-  "registerNow": "Зареєструватися зараз"
+  "registerNow": "Зареєструватися зараз",
+  "checkAndAgree": "By checking the box you agree to our ",
+  "terms": "Terms",
+  "and" : " and ",
+  "conditions": "Conditions"
 }

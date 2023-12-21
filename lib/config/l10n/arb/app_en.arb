@@ -17,5 +17,9 @@
   "or": "or",
   "google": "Google",
   "newMember": "New Member?",
-  "registerNow": "Register now"
+  "registerNow": "Register now",
+  "checkAndAgree": "By checking the box you agree to our ",
+  "terms": "Terms",
+  "and" : " and ",
+  "conditions": "Conditions"
 }

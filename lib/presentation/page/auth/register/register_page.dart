@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 
 import 'package:snip_and_style/config/router/app_route.dart';
-import 'package:snip_and_style/presentation/page/auth/register/register_form.dart';
+import 'package:snip_and_style/presentation/page/auth/register/widgets/register_form.dart';
 
 const _verticalPadding = 50.0;
 const _horizontalPadding = 24.0;
