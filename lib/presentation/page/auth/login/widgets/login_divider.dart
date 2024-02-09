@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 
 class LoginDivider extends StatelessWidget {
@@ -14,7 +15,7 @@ class LoginDivider extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          padding: EdgeInsets.symmetric(horizontal: 30.w),
           child: Text(
             context.l10n.or,
             style: context.textTheme.bodyMedium!.copyWith(

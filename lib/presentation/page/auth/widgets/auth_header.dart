@@ -4,9 +4,9 @@ import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 
 class AuthHeader extends StatelessWidget {
   const AuthHeader({
-    super.key,
     required this.title,
     required this.subTitle,
+    super.key,
   });
 
   final String title;

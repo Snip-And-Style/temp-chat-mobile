@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,7 +6,6 @@ import 'package:snip_and_style/backbone/dependency_injection.dart';
 import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 import 'package:snip_and_style/config/gen/assets.gen.dart';
 import 'package:snip_and_style/config/router/app_route.dart';
-import 'package:snip_and_style/presentation/page/auth/login/bloc/login_bloc.dart';
 import 'package:snip_and_style/presentation/page/auth/register/bloc/register_bloc.dart';
 import 'package:snip_and_style/presentation/page/auth/register/widgets/terms_row.dart';
 import 'package:snip_and_style/presentation/page/auth/widgets/auth_button.dart';

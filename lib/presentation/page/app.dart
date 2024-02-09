@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 
 import 'package:snip_and_style/config/router/app_route.dart';

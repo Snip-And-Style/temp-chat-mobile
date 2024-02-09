@@ -9,8 +9,6 @@ import 'package:snip_and_style/presentation/page/auth/widgets/auth_navigation_bu
 
 final _verticalPadding = 50.h;
 final _horizontalPadding = 24.w;
-final _spaceHeight = 8.h;
-const _animationDuration = Duration(milliseconds: 500);
 
 @RoutePage()
 class LoginPage extends StatelessWidget {
