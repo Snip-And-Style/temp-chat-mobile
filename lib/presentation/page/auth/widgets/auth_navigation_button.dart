@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snip_and_style/config/extensions/build_context_extension.dart';
+import 'package:snip_and_style/backbone/extensions/build_context_extension.dart';
 
 class AuthNavigationButton extends StatelessWidget {
   const AuthNavigationButton({

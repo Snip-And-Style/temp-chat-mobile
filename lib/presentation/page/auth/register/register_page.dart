@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:snip_and_style/config/extensions/build_context_extension.dart';
-import 'package:snip_and_style/config/router/app_route.dart';
+import 'package:snip_and_style/backbone/extensions/build_context_extension.dart';
+import 'package:snip_and_style/backbone/router/app_route.dart';
 import 'package:snip_and_style/presentation/page/auth/register/widgets/register_form.dart';
 import 'package:snip_and_style/presentation/page/auth/widgets/auth_header.dart';
 import 'package:snip_and_style/presentation/page/auth/widgets/auth_navigation_button.dart';

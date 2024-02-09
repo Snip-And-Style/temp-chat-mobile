@@ -36,7 +36,7 @@ dev_dependencies:
   very_good_analysis: ^5.0.0
 
 flutter_gen:
-  output: lib/config/gen/
+  output: lib/backbone/gen/
   line_length: 80
 
   integrations:

@@ -1,10 +1,10 @@
 abstract class AuthorizationGateway {
-  Future<String> login(
+  Future<void> login(
     String email,
     String password,
   );
 
-  Future<String> register(
+  Future<void> register(
     String email,
     String password,
     String username,

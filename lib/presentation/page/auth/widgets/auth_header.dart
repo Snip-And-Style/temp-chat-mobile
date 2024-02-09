@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:snip_and_style/config/extensions/build_context_extension.dart';
+import 'package:snip_and_style/backbone/extensions/build_context_extension.dart';
 
 class AuthHeader extends StatelessWidget {
   const AuthHeader({
