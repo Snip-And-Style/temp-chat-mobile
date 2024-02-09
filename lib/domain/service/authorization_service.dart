@@ -4,7 +4,7 @@ abstract class AuthorizationService {
     String password,
   );
 
-  Future<String> register(
+  Future<void> register(
     String email,
     String password,
     String username,

@@ -8,12 +8,10 @@ class AuthorizationServiceImpl implements AuthorizationService {
   final AuthorizationGateway _gateway;
 
   @override
-  Future<String> login(String email, String password) async {
-    return _gateway.login(email, password);
-  }
+  Future<void> login(String email, String password) async =>
+      _gateway.login(email, password);
 
   @override
-  Future<String> register(String email, String password, String username) {
-    return _gateway.register(email, password, username);
-  }
+  Future<void> register(String email, String password, String username) =>
+      _gateway.register(email, password, username);
 }

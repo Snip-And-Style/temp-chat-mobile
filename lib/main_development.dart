@@ -6,7 +6,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:snip_and_style/backbone/dependency_injection.dart' as di;
 import 'package:snip_and_style/bootstrap.dart';
-import 'package:snip_and_style/data/datasources/graphql_client.dart';
 import 'package:snip_and_style/presentation/page/app.dart';
 
 Future<void> main() async {
@@ -21,9 +20,6 @@ Future<void> main() async {
 
   // Set up dependency injection.
   di.registerDependencies();
-
-  // Initialize GraphQL client.
-  di.getIt.get<GraphQLClientManager>().init();
 
   // Initialize Firebase with the appropriate options based on the platform.
   await Firebase.initializeApp(
