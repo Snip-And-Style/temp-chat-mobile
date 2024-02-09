@@ -4,9 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:snip_and_style/backbone/dependency_injection.dart';
-import 'package:snip_and_style/config/extensions/build_context_extension.dart';
-import 'package:snip_and_style/config/gen/assets.gen.dart';
-import 'package:snip_and_style/config/router/app_route.dart';
+import 'package:snip_and_style/backbone/extensions/build_context_extension.dart';
+import 'package:snip_and_style/backbone/gen/assets.gen.dart';
+import 'package:snip_and_style/backbone/router/app_route.dart';
+
 import 'package:snip_and_style/presentation/page/auth/login/bloc/login_bloc.dart';
 import 'package:snip_and_style/presentation/page/auth/login/widgets/google_button.dart';
 import 'package:snip_and_style/presentation/page/auth/login/widgets/login_divider.dart';

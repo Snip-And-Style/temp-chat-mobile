@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:snip_and_style/config/extensions/build_context_extension.dart';
-
-import 'package:snip_and_style/config/router/app_route.dart';
-import 'package:snip_and_style/config/theme/color_scheme.dart';
-import 'package:snip_and_style/config/theme/text_theme.dart';
+import 'package:snip_and_style/backbone/extensions/build_context_extension.dart';
+import 'package:snip_and_style/backbone/router/app_route.dart';
+import 'package:snip_and_style/backbone/theme/color_scheme.dart';
+import 'package:snip_and_style/backbone/theme/text_theme.dart';
 
 class App extends StatelessWidget {
   App({super.key});

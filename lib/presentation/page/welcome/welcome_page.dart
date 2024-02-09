@@ -2,10 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:snip_and_style/config/extensions/build_context_extension.dart';
-import 'package:snip_and_style/config/gen/assets.gen.dart';
-
-import 'package:snip_and_style/config/router/app_route.dart';
+import 'package:snip_and_style/backbone/extensions/build_context_extension.dart';
+import 'package:snip_and_style/backbone/gen/assets.gen.dart';
+import 'package:snip_and_style/backbone/router/app_route.dart';
 
 @RoutePage()
 class WelcomePage extends StatefulWidget {
