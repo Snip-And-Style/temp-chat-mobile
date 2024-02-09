@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 import 'package:snip_and_style/config/gen/assets.gen.dart';
@@ -23,9 +24,9 @@ class _WelcomePageState extends State<WelcomePage> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 24,
-            horizontal: 48,
+          padding: EdgeInsets.symmetric(
+            vertical: 24.h,
+            horizontal: 48.w,
           ),
           child: Center(
             child: Column(
@@ -37,38 +38,38 @@ class _WelcomePageState extends State<WelcomePage> {
                         fontWeight: FontWeight.bold,
                       ),
                 ),
-                const SizedBox(
-                  height: 32,
+                SizedBox(
+                  height: 32.h,
                 ),
                 Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 48.0),
+                      padding: EdgeInsets.only(bottom: 48.h),
                       child: Image.asset(Assets.images.welcomeMessage.path),
                     ),
                     SvgPicture.asset(Assets.images.human.path),
                   ],
                 ),
-                const SizedBox(
-                  height: 24,
+                SizedBox(
+                  height: 24.h,
                 ),
                 Text(
                   l10n.companyCommunicationTool,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.labelMedium,
                 ),
-                const SizedBox(
-                  height: 16,
+                SizedBox(
+                  height: 16.h,
                 ),
                 InkWell(
                   onTap: () {
                     context.router.push(const LoginRoute());
                   },
                   child: Container(
-                    height: 72,
-                    width: 72,
-                    margin: const EdgeInsets.symmetric(vertical: 64),
+                    height: 72.h,
+                    width: 72.w,
+                    margin: EdgeInsets.symmetric(vertical: 64.h),
                     decoration: BoxDecoration(
                       color: const Color(0xff374ACB),
                       borderRadius: BorderRadius.circular(16),
