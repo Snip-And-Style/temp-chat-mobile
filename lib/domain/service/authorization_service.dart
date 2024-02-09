@@ -1,5 +1,5 @@
 abstract class AuthorizationService {
-  Future<String> login(
+  Future<void> login(
     String email,
     String password,
   );
