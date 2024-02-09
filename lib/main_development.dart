@@ -38,7 +38,7 @@ Future<void> main() async {
 FirebaseOptions getFirebaseOptions() {
   final isAndroid = defaultTargetPlatform == TargetPlatform.android;
 
-  // Fetches the correct Firebase configuration keys from .env based on the platform.
+  // Fetches the correct Firebase configuration keys from .env
   return FirebaseOptions(
     apiKey: dotenv.env[isAndroid ? 'ANDROID_API_KEY' : 'IOS_API_KEY'] ??
         'default_api_key',

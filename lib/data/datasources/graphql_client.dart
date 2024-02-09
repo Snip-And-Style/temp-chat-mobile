@@ -15,7 +15,7 @@ class GraphQLClientManager {
       '${dotenv.env['BACKEND_URL']}/graphql',
     );
 
-    // Initialize the GraphQLClient and wrap it in a ValueNotifier for reactivity.
+    // Initialize the GraphQLClient and wrap it in a ValueNotifier
     client = ValueNotifier(
       GraphQLClient(
         link: httpLink,

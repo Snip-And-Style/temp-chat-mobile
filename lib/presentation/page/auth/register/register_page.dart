@@ -1,12 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snip_and_style/config/extensions/build_context_extension.dart';
+import 'package:snip_and_style/config/router/app_route.dart';
 import 'package:snip_and_style/presentation/page/auth/register/widgets/register_form.dart';
+import 'package:snip_and_style/presentation/page/auth/widgets/auth_header.dart';
+import 'package:snip_and_style/presentation/page/auth/widgets/auth_navigation_button.dart';
 
-const _verticalPadding = 50.0;
-const _horizontalPadding = 24.0;
-const _spaceHeight = 8.0;
-const _animationDuration = Duration(milliseconds: 500);
+final _verticalPadding = 50.h;
+final _horizontalPadding = 24.w;
 
 @RoutePage()
 class RegisterPage extends StatelessWidget {
@@ -18,42 +20,27 @@ class RegisterPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             vertical: _verticalPadding,
             horizontal: _horizontalPadding,
           ),
           child: Column(
             children: [
-              _buildHeaderText(context),
-              _buildAnimatedRegisterForm(),
+              AuthHeader(
+                title: context.l10n.getStarted,
+                subTitle: context.l10n.getStartedFrom,
+              ),
+              const RegisterForm(),
+              const Spacer(),
+              AuthNavigationButton(
+                onPressed: () => context.router.replace(const LoginRoute()),
+                title: context.l10n.alreadyMember,
+                subTitle: context.l10n.logInHere,
+              ),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildHeaderText(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          context.l10n.getStarted,
-          style: context.textTheme.headlineLarge,
-        ),
-        const SizedBox(height: _spaceHeight),
-        Text(
-          context.l10n.getStartedFrom,
-          style: context.textTheme.bodyLarge,
-        ),
-      ],
-    );
-  }
-
-  Widget _buildAnimatedRegisterForm() {
-    return const AnimatedOpacity(
-      duration: _animationDuration,
-      opacity: 1,
-      child: RegisterForm(),
     );
   }
 }

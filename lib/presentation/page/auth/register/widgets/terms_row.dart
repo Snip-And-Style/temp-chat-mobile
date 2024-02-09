@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 
 class TermsRow extends StatelessWidget {
-  final bool isAgreed;
-  final void Function(bool?) onChanged;
   const TermsRow({
     required this.isAgreed,
     required this.onChanged,
     super.key,
   });
+
+  final bool isAgreed;
+  final void Function(bool?) onChanged;
 
   @override
   Widget build(BuildContext context) {

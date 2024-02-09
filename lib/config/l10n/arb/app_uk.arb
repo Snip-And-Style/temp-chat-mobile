@@ -18,8 +18,10 @@
   "google": "Google",
   "newMember": "Новий учасник?",
   "registerNow": "Зареєструватися зараз",
-  "checkAndAgree": "By checking the box you agree to our ",
-  "terms": "Terms",
-  "and" : " and ",
-  "conditions": "Conditions"
+  "checkAndAgree": "Поставивши позначку, ви погоджуєтесь з нашими ",
+  "terms": "Умовами",
+  "and" : " та ",
+  "conditions": "Положеннями",
+  "alreadyMember": "Вже зареєстровані?",
+  "logInHere": "Увійдіть тут"
 }
