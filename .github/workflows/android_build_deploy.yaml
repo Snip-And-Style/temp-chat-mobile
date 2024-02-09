@@ -48,10 +48,11 @@ jobs:
         run: |
           touch .env
 
-      - name: Decode Google Services JSON
-        working-directory: android/app
+      - name: Setup Environment Files
+        working-directory: android
         run: |
-          echo "$GOOGLE_SERVICES_JSON" | base64 -d > google-services.json
+          echo "$GOOGLE_SERVICES_JSON" | base64 -d > app/google-services.json
+          echo "flutter.minSdkVersion=${{ secrets.MIN_SDK_VERSION }}" > local.properties
 
       - name: Set Up Ruby Environment
         uses: ruby/setup-ruby@v1
