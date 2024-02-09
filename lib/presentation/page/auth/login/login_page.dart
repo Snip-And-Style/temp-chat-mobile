@@ -1,12 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snip_and_style/config/extensions/build_context_extension.dart';
 import 'package:snip_and_style/config/router/app_route.dart';
 import 'package:snip_and_style/presentation/page/auth/login/widgets/login_form.dart';
+import 'package:snip_and_style/presentation/page/auth/widgets/auth_header.dart';
+import 'package:snip_and_style/presentation/page/auth/widgets/auth_navigation_button.dart';
 
-const _verticalPadding = 50.0;
-const _horizontalPadding = 24.0;
-const _spaceHeight = 8.0;
+final _verticalPadding = 50.h;
+final _horizontalPadding = 24.w;
+final _spaceHeight = 8.h;
 const _animationDuration = Duration(milliseconds: 500);
 
 @RoutePage()
@@ -19,66 +22,25 @@ class LoginPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             vertical: _verticalPadding,
             horizontal: _horizontalPadding,
           ),
           child: Column(
             children: [
-              _buildHeaderText(context),
-              _buildAnimatedLoginForm(),
+              AuthHeader(
+                title: context.l10n.signIn,
+                subTitle: context.l10n.pleaseSignIn,
+              ),
+              const LoginForm(),
               const Spacer(),
-              _buildTextButton(context),
+              AuthNavigationButton(
+                onPressed: () => context.router.replace(const RegisterRoute()),
+                title: context.l10n.newMember,
+                subTitle: context.l10n.registerNow,
+              ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildHeaderText(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          context.l10n.signIn,
-          style: context.textTheme.headlineLarge,
-        ),
-        const SizedBox(height: _spaceHeight),
-        Text(
-          context.l10n.pleaseSignIn,
-          style: context.textTheme.bodyLarge,
-        ),
-      ],
-    );
-  }
-
-  Widget _buildAnimatedLoginForm() {
-    return const AnimatedOpacity(
-      duration: _animationDuration,
-      opacity: 1,
-      child: LoginForm(),
-    );
-  }
-
-  Widget _buildTextButton(BuildContext context) {
-    return TextButton(
-      onPressed: () {
-        context.router.push(const RegisterRoute());
-      },
-      child: RichText(
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: context.l10n.newMember,
-              style: context.textTheme.bodyMedium,
-            ),
-            TextSpan(
-              text: context.l10n.registerNow,
-              style: context.textTheme.bodyMedium!.copyWith(
-                color: context.color.outlineVariant,
-              ),
-            ),
-          ],
         ),
       ),
     );

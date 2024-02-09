@@ -21,5 +21,7 @@
   "checkAndAgree": "By checking the box you agree to our ",
   "terms": "Terms",
   "and" : " and ",
-  "conditions": "Conditions"
+  "conditions": "Conditions",
+  "alreadyMember": "Already a member?",
+  "logInHere": "Log in here"
 }
