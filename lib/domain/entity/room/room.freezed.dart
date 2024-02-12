@@ -19,13 +19,13 @@ mixin _$Room {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  bool get isPrivate => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
-  int get capacity => throw _privateConstructorUsedError;
-  int get lifeTime => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
   List<User> get users => throw _privateConstructorUsedError;
+  String? get password => throw _privateConstructorUsedError;
+  int? get capacity => throw _privateConstructorUsedError;
+  bool? get isPrivate => throw _privateConstructorUsedError;
+  int? get lifeTime => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RoomCopyWith<Room> get copyWith => throw _privateConstructorUsedError;
@@ -40,13 +40,13 @@ abstract class $RoomCopyWith<$Res> {
       {int id,
       String name,
       String description,
-      bool isPrivate,
-      String password,
-      int capacity,
-      int lifeTime,
       String createdAt,
       String updatedAt,
-      List<User> users});
+      List<User> users,
+      String? password,
+      int? capacity,
+      bool? isPrivate,
+      int? lifeTime});
 }
 
 /// @nodoc
@@ -65,13 +65,13 @@ class _$RoomCopyWithImpl<$Res, $Val extends Room>
     Object? id = null,
     Object? name = null,
     Object? description = null,
-    Object? isPrivate = null,
-    Object? password = null,
-    Object? capacity = null,
-    Object? lifeTime = null,
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? users = null,
+    Object? password = freezed,
+    Object? capacity = freezed,
+    Object? isPrivate = freezed,
+    Object? lifeTime = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -86,22 +86,6 @@ class _$RoomCopyWithImpl<$Res, $Val extends Room>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      isPrivate: null == isPrivate
-          ? _value.isPrivate
-          : isPrivate // ignore: cast_nullable_to_non_nullable
-              as bool,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      capacity: null == capacity
-          ? _value.capacity
-          : capacity // ignore: cast_nullable_to_non_nullable
-              as int,
-      lifeTime: null == lifeTime
-          ? _value.lifeTime
-          : lifeTime // ignore: cast_nullable_to_non_nullable
-              as int,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -114,6 +98,22 @@ class _$RoomCopyWithImpl<$Res, $Val extends Room>
           ? _value.users
           : users // ignore: cast_nullable_to_non_nullable
               as List<User>,
+      password: freezed == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      capacity: freezed == capacity
+          ? _value.capacity
+          : capacity // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isPrivate: freezed == isPrivate
+          ? _value.isPrivate
+          : isPrivate // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      lifeTime: freezed == lifeTime
+          ? _value.lifeTime
+          : lifeTime // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -129,13 +129,13 @@ abstract class _$$RoomImplCopyWith<$Res> implements $RoomCopyWith<$Res> {
       {int id,
       String name,
       String description,
-      bool isPrivate,
-      String password,
-      int capacity,
-      int lifeTime,
       String createdAt,
       String updatedAt,
-      List<User> users});
+      List<User> users,
+      String? password,
+      int? capacity,
+      bool? isPrivate,
+      int? lifeTime});
 }
 
 /// @nodoc
@@ -151,13 +151,13 @@ class __$$RoomImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? description = null,
-    Object? isPrivate = null,
-    Object? password = null,
-    Object? capacity = null,
-    Object? lifeTime = null,
     Object? createdAt = null,
     Object? updatedAt = null,
     Object? users = null,
+    Object? password = freezed,
+    Object? capacity = freezed,
+    Object? isPrivate = freezed,
+    Object? lifeTime = freezed,
   }) {
     return _then(_$RoomImpl(
       id: null == id
@@ -172,22 +172,6 @@ class __$$RoomImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      isPrivate: null == isPrivate
-          ? _value.isPrivate
-          : isPrivate // ignore: cast_nullable_to_non_nullable
-              as bool,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      capacity: null == capacity
-          ? _value.capacity
-          : capacity // ignore: cast_nullable_to_non_nullable
-              as int,
-      lifeTime: null == lifeTime
-          ? _value.lifeTime
-          : lifeTime // ignore: cast_nullable_to_non_nullable
-              as int,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -200,6 +184,22 @@ class __$$RoomImplCopyWithImpl<$Res>
           ? _value._users
           : users // ignore: cast_nullable_to_non_nullable
               as List<User>,
+      password: freezed == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      capacity: freezed == capacity
+          ? _value.capacity
+          : capacity // ignore: cast_nullable_to_non_nullable
+              as int?,
+      isPrivate: freezed == isPrivate
+          ? _value.isPrivate
+          : isPrivate // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      lifeTime: freezed == lifeTime
+          ? _value.lifeTime
+          : lifeTime // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -211,13 +211,13 @@ class _$RoomImpl implements _Room {
       {required this.id,
       required this.name,
       required this.description,
-      required this.isPrivate,
-      required this.password,
-      required this.capacity,
-      required this.lifeTime,
       required this.createdAt,
       required this.updatedAt,
-      required final List<User> users})
+      required final List<User> users,
+      this.password,
+      this.capacity,
+      this.isPrivate,
+      this.lifeTime})
       : _users = users;
 
   @override
@@ -226,14 +226,6 @@ class _$RoomImpl implements _Room {
   final String name;
   @override
   final String description;
-  @override
-  final bool isPrivate;
-  @override
-  final String password;
-  @override
-  final int capacity;
-  @override
-  final int lifeTime;
   @override
   final String createdAt;
   @override
@@ -247,8 +239,17 @@ class _$RoomImpl implements _Room {
   }
 
   @override
+  final String? password;
+  @override
+  final int? capacity;
+  @override
+  final bool? isPrivate;
+  @override
+  final int? lifeTime;
+
+  @override
   String toString() {
-    return 'Room(id: $id, name: $name, description: $description, isPrivate: $isPrivate, password: $password, capacity: $capacity, lifeTime: $lifeTime, createdAt: $createdAt, updatedAt: $updatedAt, users: $users)';
+    return 'Room(id: $id, name: $name, description: $description, createdAt: $createdAt, updatedAt: $updatedAt, users: $users, password: $password, capacity: $capacity, isPrivate: $isPrivate, lifeTime: $lifeTime)';
   }
 
   @override
@@ -260,19 +261,19 @@ class _$RoomImpl implements _Room {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.isPrivate, isPrivate) ||
-                other.isPrivate == isPrivate) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.capacity, capacity) ||
-                other.capacity == capacity) &&
-            (identical(other.lifeTime, lifeTime) ||
-                other.lifeTime == lifeTime) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
-            const DeepCollectionEquality().equals(other._users, _users));
+            const DeepCollectionEquality().equals(other._users, _users) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.capacity, capacity) ||
+                other.capacity == capacity) &&
+            (identical(other.isPrivate, isPrivate) ||
+                other.isPrivate == isPrivate) &&
+            (identical(other.lifeTime, lifeTime) ||
+                other.lifeTime == lifeTime));
   }
 
   @override
@@ -281,13 +282,13 @@ class _$RoomImpl implements _Room {
       id,
       name,
       description,
-      isPrivate,
-      password,
-      capacity,
-      lifeTime,
       createdAt,
       updatedAt,
-      const DeepCollectionEquality().hash(_users));
+      const DeepCollectionEquality().hash(_users),
+      password,
+      capacity,
+      isPrivate,
+      lifeTime);
 
   @JsonKey(ignore: true)
   @override
@@ -301,13 +302,13 @@ abstract class _Room implements Room {
       {required final int id,
       required final String name,
       required final String description,
-      required final bool isPrivate,
-      required final String password,
-      required final int capacity,
-      required final int lifeTime,
       required final String createdAt,
       required final String updatedAt,
-      required final List<User> users}) = _$RoomImpl;
+      required final List<User> users,
+      final String? password,
+      final int? capacity,
+      final bool? isPrivate,
+      final int? lifeTime}) = _$RoomImpl;
 
   @override
   int get id;
@@ -316,19 +317,19 @@ abstract class _Room implements Room {
   @override
   String get description;
   @override
-  bool get isPrivate;
-  @override
-  String get password;
-  @override
-  int get capacity;
-  @override
-  int get lifeTime;
-  @override
   String get createdAt;
   @override
   String get updatedAt;
   @override
   List<User> get users;
+  @override
+  String? get password;
+  @override
+  int? get capacity;
+  @override
+  bool? get isPrivate;
+  @override
+  int? get lifeTime;
   @override
   @JsonKey(ignore: true)
   _$$RoomImplCopyWith<_$RoomImpl> get copyWith =>

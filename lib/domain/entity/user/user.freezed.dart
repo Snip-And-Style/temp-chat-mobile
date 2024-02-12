@@ -19,9 +19,9 @@ mixin _$User {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String get socket => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
+  String? get socket => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
@@ -36,9 +36,9 @@ abstract class $UserCopyWith<$Res> {
       {int id,
       String name,
       String email,
-      String socket,
       String createdAt,
-      String updatedAt});
+      String updatedAt,
+      String? socket});
 }
 
 /// @nodoc
@@ -57,9 +57,9 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? id = null,
     Object? name = null,
     Object? email = null,
-    Object? socket = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? socket = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -74,10 +74,6 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      socket: null == socket
-          ? _value.socket
-          : socket // ignore: cast_nullable_to_non_nullable
-              as String,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -86,6 +82,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
+      socket: freezed == socket
+          ? _value.socket
+          : socket // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -101,9 +101,9 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       {int id,
       String name,
       String email,
-      String socket,
       String createdAt,
-      String updatedAt});
+      String updatedAt,
+      String? socket});
 }
 
 /// @nodoc
@@ -119,9 +119,9 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? email = null,
-    Object? socket = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? socket = freezed,
   }) {
     return _then(_$UserImpl(
       id: null == id
@@ -136,10 +136,6 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      socket: null == socket
-          ? _value.socket
-          : socket // ignore: cast_nullable_to_non_nullable
-              as String,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -148,6 +144,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as String,
+      socket: freezed == socket
+          ? _value.socket
+          : socket // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -159,9 +159,9 @@ class _$UserImpl implements _User {
       {required this.id,
       required this.name,
       required this.email,
-      required this.socket,
       required this.createdAt,
-      required this.updatedAt});
+      required this.updatedAt,
+      this.socket});
 
   @override
   final int id;
@@ -170,15 +170,15 @@ class _$UserImpl implements _User {
   @override
   final String email;
   @override
-  final String socket;
-  @override
   final String createdAt;
   @override
   final String updatedAt;
+  @override
+  final String? socket;
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, email: $email, socket: $socket, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'User(id: $id, name: $name, email: $email, createdAt: $createdAt, updatedAt: $updatedAt, socket: $socket)';
   }
 
   @override
@@ -189,16 +189,16 @@ class _$UserImpl implements _User {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.socket, socket) || other.socket == socket) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.socket, socket) || other.socket == socket));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, name, email, socket, createdAt, updatedAt);
+      Object.hash(runtimeType, id, name, email, createdAt, updatedAt, socket);
 
   @JsonKey(ignore: true)
   @override
@@ -212,9 +212,9 @@ abstract class _User implements User {
       {required final int id,
       required final String name,
       required final String email,
-      required final String socket,
       required final String createdAt,
-      required final String updatedAt}) = _$UserImpl;
+      required final String updatedAt,
+      final String? socket}) = _$UserImpl;
 
   @override
   int get id;
@@ -223,11 +223,11 @@ abstract class _User implements User {
   @override
   String get email;
   @override
-  String get socket;
-  @override
   String get createdAt;
   @override
   String get updatedAt;
+  @override
+  String? get socket;
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>
