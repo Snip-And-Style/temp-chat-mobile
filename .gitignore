@@ -132,3 +132,5 @@ app.*.map.json
 **/lib/firebase_options.dart
 
 *.env
+*.g.dart 
+*.freezed.dart
