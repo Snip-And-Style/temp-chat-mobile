@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:snip_and_style/backbone/dependency_injection.dart';
 import 'package:snip_and_style/backbone/extensions/build_context_extension.dart';
+import 'package:snip_and_style/domain/entity/room/room.dart';
 import 'package:snip_and_style/presentation/page/messages/bloc/messages_bloc.dart';
 
 @RoutePage()
@@ -54,8 +56,36 @@ class _MessagesPageState extends State<MessagesPage> {
         ],
         backgroundColor: context.color.background,
       ),
-      body: const Center(
-        child: Text('Messages Page'),
+      body: BlocSelector<MessagesBloc, MessagesState, List<Room>?>(
+        bloc: _messagesBloc,
+        selector: (state) {
+          return state.when(
+            loading: () => null,
+            success: (rooms) => rooms,
+          );
+        },
+        builder: (context, state) {
+          if (state == null) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            final rooms = state;
+            return ListView.builder(
+              itemCount: rooms.length,
+              itemBuilder: (context, number) {
+                return Row(
+                  children: [
+                    const Icon(Icons.face),
+                    Text(
+                      rooms[number].name,
+                    ),
+                  ],
+                );
+              },
+            );
+          }
+        },
       ),
     );
   }
