@@ -6,6 +6,7 @@ import 'package:snip_and_style/backbone/dependency_injection.dart';
 import 'package:snip_and_style/backbone/extensions/build_context_extension.dart';
 import 'package:snip_and_style/domain/entity/room/room.dart';
 import 'package:snip_and_style/presentation/page/messages/bloc/messages_bloc.dart';
+import 'package:snip_and_style/presentation/page/messages/widgets/room_container.dart';
 
 @RoutePage()
 class MessagesPage extends StatefulWidget {
@@ -71,18 +72,13 @@ class _MessagesPageState extends State<MessagesPage> {
             );
           } else {
             final rooms = state;
-            return ListView.builder(
-              itemCount: rooms.length,
-              itemBuilder: (context, number) {
-                return Row(
-                  children: [
-                    const Icon(Icons.face),
-                    Text(
-                      rooms[number].name,
-                    ),
-                  ],
-                );
-              },
+            return Expanded(
+              child: ListView.builder(
+                itemCount: rooms.length,
+                itemBuilder: (context, number) {
+                  return const RoomContainer();
+                },
+              ),
             );
           }
         },
