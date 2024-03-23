@@ -1,9 +1,6 @@
 name: Android Build and Deploy
 
 on:
-  pull_request:
-    branches:
-      - development
   workflow_dispatch:
     inputs:
       release_notes:
