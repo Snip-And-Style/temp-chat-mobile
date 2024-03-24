@@ -14,4 +14,7 @@ class AuthorizationServiceImpl implements AuthorizationService {
   @override
   Future<void> register(String email, String password, String username) =>
       _gateway.register(email, password, username);
+
+  @override
+  Future<bool> checkIfAuthorized() => _gateway.checkIfAuthorized();
 }

@@ -9,4 +9,6 @@ abstract class AuthorizationService {
     String password,
     String username,
   );
+
+  Future<bool> checkIfAuthorized();
 }

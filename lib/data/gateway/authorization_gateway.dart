@@ -1,5 +1,6 @@
 // ignore: unused_import
 import 'package:flutter/foundation.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:snip_and_style/data/datasources/graphql_client.dart';
 import 'package:snip_and_style/data/datasources/mutations/authorization_mutations.dart';
@@ -26,7 +27,7 @@ class AuthorizationGatewayImpl implements AuthorizationGateway {
     // Execute the mutation and await the result.
     final result = await _graphQLClientManager.callGraphQLMutation(options);
 
-    _graphQLClientManager.updateSession(result);
+    await _graphQLClientManager.updateSession(result);
   }
 
   @override
@@ -43,5 +44,14 @@ class AuthorizationGatewayImpl implements AuthorizationGateway {
     );
 
     await _graphQLClientManager.callGraphQLMutation(options);
+  }
+
+  @override
+  Future<bool> checkIfAuthorized() async {
+    const secureStorage = FlutterSecureStorage();
+
+    final authToken = await secureStorage.read(key: 'authToken');
+
+    return authToken != null && authToken.isNotEmpty;
   }
 }
