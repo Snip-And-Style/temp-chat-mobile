@@ -1,18 +1,27 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 class GraphQLClientManager {
   GraphQLClientManager() {
     _initClient();
   }
+  final _secureStorage = const FlutterSecureStorage();
 
   late final ValueNotifier<GraphQLClient> clientNotifier;
 
   /// Initializes the GraphQL client with an HTTP link
-  void _initClient() {
+  Future<void> _initClient() async {
     final backendUrl = dotenv.env['BACKEND_URL']!;
-    final httpLink = HttpLink('$backendUrl/graphql');
+
+    // Retrieve the auth token from secure storage
+    final authToken = await _secureStorage.read(key: 'authToken');
+
+    final httpLink = HttpLink(
+      '$backendUrl/graphql',
+      defaultHeaders: {'Cookie': authToken ?? ''},
+    );
 
     clientNotifier = ValueNotifier(
       GraphQLClient(
@@ -23,7 +32,7 @@ class GraphQLClientManager {
   }
 
   /// Updates the session with a new cookie for subsequent requests.
-  void updateSession(QueryResult<Object?> result) {
+  Future<void> updateSession(QueryResult<Object?> result) async {
     // Extracting the cookie from the response for session management.
     final cookie = result.context
         .entry<HttpLinkResponseContext>()
@@ -31,6 +40,8 @@ class GraphQLClientManager {
         .toString();
 
     if (cookie != null) {
+      await _secureStorage.write(key: 'authToken', value: cookie);
+
       final backendUrl = dotenv.env['BACKEND_URL']!;
       final httpLink = HttpLink(
         '$backendUrl/graphql',
