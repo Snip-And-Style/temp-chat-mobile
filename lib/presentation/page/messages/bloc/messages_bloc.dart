@@ -11,8 +11,8 @@ class MessagesBloc extends Bloc<MessagesEvent, MessagesState> {
   MessagesBloc(
     this._getRoomsUseCase,
   ) : super(const _Loading()) {
-    on<MessagesEvent>((event, emit) {
-      event.when(
+    on<MessagesEvent>((event, emit) async {
+      await event.when(
         getInitialData: () => getInitialData(emit: emit),
       );
     });

@@ -9,4 +9,6 @@ abstract class AuthorizationGateway {
     String password,
     String username,
   );
+
+  Future<bool> checkIfAuthorized();
 }
