@@ -12,12 +12,14 @@ import 'package:snip_and_style/domain/gateway/authorization_gateway.dart';
 import 'package:snip_and_style/domain/gateway/room_gateway.dart';
 import 'package:snip_and_style/domain/service/authorization_service.dart';
 import 'package:snip_and_style/domain/service/room_service.dart';
+import 'package:snip_and_style/domain/usecase/check_if_authorized_usecase.dart';
 import 'package:snip_and_style/domain/usecase/get_rooms_usecase.dart';
 import 'package:snip_and_style/domain/usecase/login_usecase.dart';
 import 'package:snip_and_style/domain/usecase/register_usecase.dart';
 import 'package:snip_and_style/presentation/page/auth/login/bloc/login_bloc.dart';
 import 'package:snip_and_style/presentation/page/auth/register/bloc/register_bloc.dart';
 import 'package:snip_and_style/presentation/page/messages/bloc/messages_bloc.dart';
+import 'package:snip_and_style/presentation/page/welcome/bloc/welcome_bloc.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -45,7 +47,9 @@ void registerDependencies() {
     )
 
     // BLoC
-
+    ..registerLazySingleton<WelcomeBloc>(
+      () => WelcomeBloc(getIt.get<CheckIfAuthorizedUseCase>()),
+    )
     ..registerLazySingleton<LoginBloc>(
       () => LoginBloc(getIt.get<LoginUseCase>()),
     )
@@ -87,6 +91,9 @@ void registerDependencies() {
     )
     ..registerLazySingleton<GetRoomsUseCase>(
       () => GetRoomsUseCaseImpl(getIt.get<RoomService>()),
+    )
+    ..registerLazySingleton<CheckIfAuthorizedUseCase>(
+      () => CheckIfAuthorizedImpl(getIt.get<AuthorizationService>()),
     )
 
     // DataSource
