@@ -14,5 +14,6 @@ class TempChatColorScheme {
         surface: Color(0xffE7ECF2),
         onSurface: Color(0xff555555),
         outlineVariant: Color(0xff2488E7),
+        tertiary: Color(0xffABB0C6),
       );
 }

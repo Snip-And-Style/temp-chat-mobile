@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:snip_and_style/presentation/page/auth/login/login_page.dart';
 import 'package:snip_and_style/presentation/page/auth/register/register_page.dart';
-import 'package:snip_and_style/presentation/page/home/home_page.dart';
+import 'package:snip_and_style/presentation/page/messages/messages_page.dart';
 import 'package:snip_and_style/presentation/page/welcome/welcome_page.dart';
 
 part 'app_route.gr.dart';
@@ -21,7 +21,7 @@ class AppRouter extends _$AppRouter {
           page: RegisterRoute.page,
         ),
         AutoRoute(
-          page: HomeRoute.page,
+          page: MessagesRoute.page,
         ),
       ];
 }

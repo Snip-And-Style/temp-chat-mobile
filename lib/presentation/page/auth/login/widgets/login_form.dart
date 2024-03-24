@@ -58,7 +58,7 @@ class _LoginFormState extends State<LoginForm> {
           initial: () {},
           loading: () {},
           success: () {
-            context.router.push(const HomeRoute());
+            context.router.push(const MessagesRoute());
           },
           failure: (error) {
             ScaffoldMessenger.of(context).showSnackBar(

@@ -53,6 +53,14 @@ class GraphQLClientManager {
     return result;
   }
 
+  Future<QueryResult> callGraphQLQuery(QueryOptions options) async {
+    final result = await clientNotifier.value.query(options);
+    if (result.hasException) {
+      _handleErrors(result);
+    }
+    return result;
+  }
+
   /// Centralizes error handling for GraphQL operations.
   void _handleErrors(QueryResult result) {
     if (result.exception!.graphqlErrors.isNotEmpty) {
